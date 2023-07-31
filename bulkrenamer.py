@@ -1,21 +1,18 @@
 import os
 import sys
 import argparse
+import datetime
 
 def main():
-
-	i=1
+	
+	timestamp = datetime.datetime.now()
+	date = timestamp.date().isoformat()
 	path = "/Users/f1fth/Desktop/fotosort/"
 	for filename in os.listdir(path):
-		target = sys.argv[1] + "-" + filename
+		target = date + "-" + filename
 		source = path + filename
 		target = path + target
 		os.rename(source, target)
-		i += 1
-		print (target)
-		print (source)
-		print (filename)
-
 
 if __name__ == '__main__':
 	main()
